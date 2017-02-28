@@ -1,0 +1,39 @@
+.image--bin {
+    width: 100px;
+}
+
+.page {
+    border: 1px solid black;
+}
+
+.bin--1 {
+    background-color: lightgrey;
+}
+
+.bin--2 {
+    background-color: white;
+}
+
+.bin--3 {
+    background-color: lightgreen;
+}
+
+.bin--4 {
+    background-color: lightblue;
+}
+
+.bin--5 {
+    background-color: beige;
+}
+
+.bin--6 {
+    background-color: pink;
+}
+
+.bin--7 {
+    background-color: mediumpurple;
+}
+
+.bin--8 {
+    background-color: gold;
+}
