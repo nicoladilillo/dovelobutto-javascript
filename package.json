@@ -1,0 +1,25 @@
+{
+  "name": "dovelobutto",
+  "version": "1.0.0",
+  "description": "-------",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicoladilillo/dovelobutto-javascript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicoladilillo/dovelobutto-javascript/issues"
+  },
+  "homepage": "https://github.com/nicoladilillo/dovelobutto-javascript#readme",
+  "dependencies": {
+    "jquery": "^3.2.0",
+    "jquery-ui": "^1.12.1",
+    "mustache": "^2.3.0",
+    "webpack": "^2.2.1"
+  }
+}
