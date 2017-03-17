@@ -10,121 +10,9 @@
     <link rel="icon" href="/assets/images/recycle.png">
 </head>
 <body>
+
     <main>
-        <div class="page" id="page-index">
-            <nav>
-                <a href="/">
-                    <header>
-                        <img src="/assets/images/logo.svg" alt="Dove lo butto">
-                        <h1>Dove lo butto</h1>
-                    </header>
-                </a>
-                <form class="js--search-form">
-                    <input class="js--autocomplete" type="text" name="name" placeholder="Ricicla ora">
-                    <input type="submit" value="submit">
-                </form>
-            </nav>
-
-            <div>
-                <header>
-                    <img src="/assets/images/logo.svg" alt="Dove lo butto">
-                    <h1>Dove lo butto</h1>
-                </header>
-                <p>
-                    <strong>Dove lo butto</strong> ti permette di scoprire velocemente e
-                    facilmente come riciclare tutto ciò che ti passa per le mani.
-                </p>
-                <p>
-                    La raccolta differenziata non è facile come sembra e questo servizio
-                    nasce apposta per facilitarla, fornendo alle persone uno strumento
-                    utile e facile da usare.
-                </p>
-            </div>
-        </div>
-
-        <div class="page" id="page-found">
-            <nav>
-                <a href="/">
-                    <header>
-                        <img src="/assets/images/logo.svg" alt="Dove lo butto">
-                        <h1>Dove lo butto</h1>
-                    </header>
-                </a>
-                <form class="js--search-form">
-                    <input class="js--autocomplete" type="text" name="name" placeholder="Ricicla ora">
-                    <input type="submit" value="submit">
-                </form>
-            </nav>
-
-            <div class="js--bin-container" data-class="js--bin-container">
-                <div id="response">
-                    <img class="image image--bin js--bin-image" src="">
-                    <article>
-                        <h4>Ricicla come</h4>
-                        <h2 class="js--bin-name"></h2>
-                    </article>
-                </div>
-            </div>
-        </div>
-
-        <div class="page" id="page-not-found">
-            <nav>
-                <a href="/">
-                    <header>
-                        <img src="/assets/images/logo.svg" alt="Dove lo butto">
-                        <h1>Dove lo butto</h1>
-                    </header>
-                </a>
-                <form class="js--search-form">
-                    <input class="js--autocomplete" type="text" name="name" placeholder="Ricicla ora">
-                    <input type="submit" value="submit">
-                </form>
-            </nav>
-
-            <div>
-                <h2>
-                    Ci dispiace, non abbiamo trovato l'oggetto
-                    <b id="product-searched" ></b>
-                </h2>
-                <h3>Inserisci la tua email e ti contatteremo non appena lo sapremo!</h3>
-                <form action="email.php" method="POST" accept-charset="utf-8">
-                    <span>
-                        <input placeholder="email@domain.com" type="email" name="email">
-                    </span>
-                    <span>
-                        <input type="submit" value="Invia">
-                    </span>
-                    <input type="hidden" id="product-name" name="product-name" value="">
-                </form>
-            </div>
-        </div>
-
-        <div class="page" id="page-email">
-            <nav>
-                <a href="/">
-                    <header>
-                        <img src="/assets/images/logo.svg" alt="Dove lo butto">
-                        <h1>Dove lo butto</h1>
-                    </header>
-                </a>
-                <form class="js--search-form">
-                    <input class="js--autocomplete" type="text" name="name" placeholder="Ricicla ora">
-                    <input type="submit" value="submit">
-                </form>
-            </nav>
-
-            <div>
-                <h2>
-                    Ti invieremo al più presto un'email a:<br />
-                    <span class="js--email">EMAIL@DOMAIN.COM</span>
-                </h2>
-                <img src="/assets/images/done.svg" role="presentation">
-                <h3>Prodotto cercato:<br /><span class="js--bin-name"></span></h3>
-                <div>
-                    <a href="#">Torna indietro</a>
-                </div>
-            </div>
-        </main>
+    </main>
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -132,5 +20,6 @@
     <script src="/assets/js/controller.js"></script>
     <script src="/assets/js/routing.js"></script>
     <script src="/assets/js/index.js"></script>
-  </body>
-  </html>
+    
+</body>
+</html>
