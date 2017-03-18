@@ -3,10 +3,10 @@
     <div>
         <h2>
             Ci dispiace, non abbiamo trovato l'oggetto
-            <b id="product-searched" ></b>
+            <b id="product-searched" >{{ name }}</b>
         </h2>
         <h3>Inserisci la tua email e ti contatteremo non appena lo sapremo!</h3>
-        <form action="email.php" method="POST" accept-charset="utf-8">
+        <form action="email.php" method="POST" accept-charset="utf-8" class="js--email-form">
             <span>
                 <input placeholder="email@domain.com" type="email" name="email">
             </span>

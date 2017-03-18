@@ -17,7 +17,7 @@ function init(template, data) {
   if(!data) data = {};
 
   var html = Mustache.render(template, data);
-  
+
   var $page = $(html);
   $page.find('.js--search-form').off('submit').on('submit', function(e) {
     e.preventDefault();
@@ -39,6 +39,19 @@ function init(template, data) {
     select: function(e, ui) {
       handleProduct(ui.item);
     },
+  });
+
+  $page.find('.js--email-form')
+    .off('submit')
+      .on('submit', function(e) {
+        e.preventDefault();
+
+        var name = data.name;
+        var email = this.email.value;
+        go('email', {
+          name: name,
+          email: email,
+        });
   });
 
   return $page;
