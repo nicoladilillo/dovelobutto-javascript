@@ -1,3 +1,9 @@
+import $ from 'jquery';
+import 'jquery-ui/ui/widgets/autocomplete';
+import Mustache from 'mustache';
+import { go } from './routing';
+import { searchOne, search, saveProduct } from './service';
+
 function handleProduct(product) {
   if (product.bin) {
     go('found', {
@@ -56,3 +62,6 @@ function init(template, data) {
 
   return $page;
 }
+
+// export { init };
+export default init;
