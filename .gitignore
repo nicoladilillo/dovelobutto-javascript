@@ -1,2 +1,10 @@
+# Npm
 /node_modules/
+
+# Webpack
 web/assets/js/bundle.js
+
+# Silex
+/vendor/
+composer.lock
+/build/
