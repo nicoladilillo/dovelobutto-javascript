@@ -1,16 +1,38 @@
 <?php
 
-// web/index.php
-require_once __DIR__.'/../vendor/autoload.php';
+  // web/index.php
+  require_once __DIR__.'/../vendor/autoload.php';
 
-$app = new Silex\Application();
+  use Silex\Application;
+  use Silex\Provider\TwigServiceProvider;
+  use Symfony\Component\HttpFoundation\Request;
+  use Symfony\Component\HttpFoundation\Response;
+  use Symfony\Component\HttpFoundation\ParameterBag;
 
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__.'/assets/views',
-));
+  $app = new Application();
 
-$app->get('/', function () use ($app) {
+  $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
+    'db.options' => array (
+      'driver'    => 'pdo_mysql',
+      'host'      => 'localhost',
+      'dbname'    => 'dovelobutto',
+      'user'      => 'vagrant',
+      'password'  => 'vagrant',
+      'charset'   => 'utf8mb4'
+    )
+  ));
+
+  $app->register(new Silex\Provider\TwigServiceProvider(), array(
+    'twig.path' => __DIR__.'/views',
+  ));
+
+  $app->get('/', function () use ($app) {
     return $app['twig']->render('index.html');
-});
+  });
 
-$app->run();
+  require_once __DIR__.'/backend/search.php';
+
+  // set debug mode
+  $app['debug'] = true;
+
+  $app->run();
