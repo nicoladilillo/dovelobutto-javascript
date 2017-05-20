@@ -5,9 +5,13 @@ import navbar from '../views/navbar.mustache';
 import email from '../views/email.mustache';
 import notFound from '../views/not-found.mustache';
 
+var PRODUCT_URL = 'https://dovelobutto.herokuapp.com/products';
+
 function search(name) {
   return $.getJSON('/search', {
     name: name
+  }).then(function(response) {
+    return response.data;
   });
 }
 

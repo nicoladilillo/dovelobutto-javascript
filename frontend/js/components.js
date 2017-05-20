@@ -1,16 +1,16 @@
 import $ from 'jquery';
-import { getView } from './service';
+import { getView } from './services';
 import init from './controller';
 
-function createNavbar() {
+function navbar() {
   var view = getView('navbar')
   var template = init(view);
-  var navbars = $('navbar');
+  var navbars = $('ps-navbar');
   navbars = template.replaceAll(navbars);
 }
 
 function initComponents() {
-  createNavbar();
+  navbar();
 }
 
 export default initComponents;

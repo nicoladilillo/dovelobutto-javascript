@@ -1,9 +1,36 @@
 <?php
+  use Symfony\Component\HttpFoundation\Request;
 
-  $app->get('/search', function () use ($app) {
+  $app->get('/search', function (Request $request) use ($app) {
+    $name = $request->get('name');
     $sql =
-      "SELECT Name AS name FROM products";
-    $post = $app['db']->fetchAssoc($sql);
+      "SELECT b.Name as bin, b.ID as id, p.Name AS name
+       FROM (agreements a INNER JOIN products p ON (a.id_product=p.ID))
+            INNER JOIN bins b ON (a.id_bin=b.ID)
+      WHERE p.Name LIKE '%$name%'";
+    $row = $app['db']->fetchAll($sql);
 
-    return $app->json($post, 201);
+    $output = [];
+    if ( $row == [] or $row[0]['name'] != $name ) {
+      array_push($output,
+        array(
+          'name' => $name,
+          'bin' => null
+        )
+      );
+    };
+
+    foreach ($row as $row) {
+      array_push($output,
+        array(
+          'bin' => array(
+            'id' => $row['id'],
+            'name' => $row['bin']
+          ),
+          'name' => $row['name'],
+        )
+      );
+    }
+
+    return $app->json(array( 'data' => $output ), 201);
   });
