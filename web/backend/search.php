@@ -2,12 +2,12 @@
   use Symfony\Component\HttpFoundation\Request;
 
   $app->get('/search', function (Request $request) use ($app) {
-    $name = $request->get('name');
+    $name = strtolower($request->get('name'));
     $sql =
       "SELECT b.Name as bin, b.ID as id, p.Name AS name
        FROM (agreements a INNER JOIN products p ON (a.id_product=p.ID))
             INNER JOIN bins b ON (a.id_bin=b.ID)
-      WHERE p.Name LIKE '%$name%'";
+      WHERE p.Name LIKE '$name%' and a.id_status=1";
     $row = $app['db']->fetchAll($sql);
 
     $output = [];
