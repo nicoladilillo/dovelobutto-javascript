@@ -5,7 +5,16 @@ import navbar from '../views/navbar.mustache';
 import email from '../views/email.mustache';
 import notFound from '../views/not-found.mustache';
 
-var PRODUCT_URL = 'https://dovelobutto.herokuapp.com/products';
+function saveProduct(name, email) {
+  return $.ajax('/email', {
+    contentType: 'application/json',
+    data: JSON.stringify({
+      email: email,
+      name: name,
+    }),
+    method: 'post',
+  });
+}
 
 function search(name) {
   return $.getJSON('/search', {
@@ -33,4 +42,4 @@ function getView(name) {
   return views[name];
 }
 
-export { getView, search, searchOne };
+export { getView, search, searchOne, saveProduct };

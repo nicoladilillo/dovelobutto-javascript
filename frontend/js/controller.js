@@ -41,18 +41,20 @@ function init(template, data) {
       });
     });
 
-  $page.find('.js--email-form')
-    .off('submit')
-    .on('submit', function(e) {
-      e.preventDefault();
+    $page.find('.js--email-form')
+      .off('submit')
+      .on('submit', function(e) {
+        e.preventDefault();
 
-      var name = data.productName;
-      var email = this.email.value;
-      go('email', {
-          productName: name,
-          email: email,
+        var name = data.productName;
+        var email = this.email.value;
+        saveProduct(name, email).then(function() {
+          go('email', {
+            email: email,
+            productName: name,
+          });
+        });
       });
-    });
 
   $page.find('.js--autocomplete').autocomplete({
     source: function(request, response) {
