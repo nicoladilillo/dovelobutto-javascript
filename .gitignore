@@ -8,3 +8,5 @@ web/assets/js/bundle.js
 /vendor/
 composer.lock
 /build/
+
+scheme.sql

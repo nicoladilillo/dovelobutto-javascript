@@ -5,8 +5,17 @@
 
   use Silex\Application;
   use Silex\Provider\TwigServiceProvider;
+  use Symfony\Component\HttpFoundation\Request;
+  use Symfony\Component\HttpFoundation\ParameterBag;
 
   $app = new Application();
+
+  $app->before(function (Request $request) {
+      if (0 === strpos($request->headers->get('Content-Type'), 'application/json')) {
+          $data = json_decode($request->getContent(), true);
+          $request->request->replace(is_array($data) ? $data : array());
+      }
+  });
 
   $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     'db.options' => array (
@@ -28,6 +37,7 @@
   });
 
   require_once __DIR__.'/backend/search.php';
+  require_once __DIR__.'/backend/email.php';
 
   // set debug mode
   $app['debug'] = true;
