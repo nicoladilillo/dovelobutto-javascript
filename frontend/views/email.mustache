@@ -1,14 +1,18 @@
-<div class="page" id="page-email">
-    <ps-navbar></ps-navbar>
+<ps-navbar></ps-navbar>
+<div class="page page--email" id="page-email">
+  <div class="page__content">
+    <h2>
+      Ti invieremo al più presto un'email a:<br />
+      <span class="js--email">{{ email }}</span>
+    </h2>
+    <img class="page--email__icon" src="/assets/images/done.svg" role="presentation">
+    <h3>
+      Prodotto cercato:<br />
+      <span class="js--bin-name">{{ productName }}</span>
+    </h3>
     <div>
-        <h2>
-            Ti invieremo al più presto un'email a:<br />
-            <span class="js--email">{{ email }}</span>
-        </h2>
-        <img src="/assets/images/done.svg" role="presentation">
-        <h3>Prodotto cercato:<br /><span class="js--bin-name">{{ productName }}</span></h3>
-        <div>
-            <button class="js--go" data-route="index" >Torna indietro</button>
-        </div>
+      <a class="js--go button button--primary" data-route="index" href="#">Torna indietro</a>
     </div>
+    <img src="/assets/images/garbage-truck.svg" role="presentation" class="garbage-truck">
+  </div>
 </div>

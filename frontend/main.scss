@@ -1,8 +1,12 @@
 $image-width: 100px;
 $bin-1-color: lightgrey;
 
-.image--bin {
+.recycle-bin {
     width: $image-width;
+}
+
+img[role=presentation] {
+  display: none;
 }
 
 .page {

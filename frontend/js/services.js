@@ -4,6 +4,21 @@ import found from '../views/found.mustache';
 import navbar from '../views/navbar.mustache';
 import email from '../views/email.mustache';
 import notFound from '../views/not-found.mustache';
+import city from '../views/city.mustache';
+
+function city() {
+  return $.ajax('/city').then(
+    function(response) {
+      return response.data;
+  });
+}
+function selectCity(name) {
+  return $.getJSON('/selectcity', {
+    name: name
+  }).then(function(response) {
+    return response.data;
+  });
+}
 
 function saveProduct(name, email) {
   return $.ajax('/email', {
@@ -37,9 +52,10 @@ function getView(name) {
     navbar: navbar,
     email: email,
     'not-found': notFound,
+    city: city,
   };
 
   return views[name];
 }
 
-export { getView, search, searchOne, saveProduct };
+export { getView, search, searchOne, saveProduct, selectCity, city };

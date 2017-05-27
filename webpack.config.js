@@ -22,5 +22,6 @@ module.exports = {
   entry: './frontend/js/index.js',
   output: {
     filename: './web/assets/js/bundle.js',
-  }
+  },
+  devtool: "cheap-eval-source-map",
 }

@@ -1,0 +1,27 @@
+.header-wrapper {
+  text-decoration: none;
+}
+
+.header {
+    text-align: center;
+}
+.header {
+   -webkit-box-orient: horizontal;
+   -webkit-box-direction: normal;
+   -ms-flex-direction: row;
+   flex-direction: row;
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-pack: start;
+   -ms-flex-pack: start;
+   justify-content: flex-start;
+}
+
+.header__image {
+  margin-right: 10px;
+}
+
+.header__text {
+    font-size: 20px;
+}

@@ -1,0 +1,9 @@
+.page {
+    height: 0;
+    min-height: 100vh;
+    position: relative;
+    text-align: center;
+    @media (min-width: 768px) {
+      padding-left: 240px;
+    }
+}

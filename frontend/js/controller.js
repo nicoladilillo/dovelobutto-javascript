@@ -2,7 +2,7 @@ import $ from 'jquery';
 import 'jquery-ui/ui/widgets/autocomplete';
 import Mustache from 'mustache';
 import { go } from './routing';
-import { searchOne, search, saveProduct } from './services';
+import { searchOne, search, saveProduct, selectCity } from './services';
 
 function handleProduct(product) {
   if (product.bin) {
@@ -24,10 +24,12 @@ function init(template, data) {
   var html = Mustache.render(template, data);
 
   var $page = $(html);
-  $page.find('.js--go').off('click').on('click', function() {
-    var route = $(this).data('route');
-    var data = $(this).data('data') || '{}';
-    go(route, JSON.parse(data));
+  $page.find('.js--go')
+    .off('click')
+    .on('click', function() {
+      var route = $(this).data('route');
+      var data = $(this).data('data') || '{}';
+      go(route, JSON.parse(data));
   });
 
   $page.find('.js--search-form')
@@ -56,19 +58,32 @@ function init(template, data) {
         });
       });
 
-  $page.find('.js--autocomplete').autocomplete({
-    source: function(request, response) {
-      search(request.term).then(function(data) {
-        for (var i = 0; i < data.length; i++) {
-          data[i].label = data[i].name;
-        }
-        response(data);
-      });
-    },
-    select: function(e, ui) {
-      handleProduct(ui.item);
-    },
+  $page.find('.js--autocomplete-product')
+    .autocomplete({
+      source: function(request, response) {
+        search(request.term).then(function(data) {
+          for (var i = 0; i < data.length; i++) {
+            data[i].label = data[i].name;
+          }
+          response(data);
+        });
+      },
+      select: function(e, ui) {
+        handleProduct(ui.item);
+      },
   });
+
+  $page.find('.js--autocomplete-city')
+    .autocomplete({
+      source: function(request, response) {
+        selectCity(request.term).then(function(data) {
+          for (var i = 0; i < data.length; i++) {
+            data[i].label = data[i].name;
+          }
+          response(data);
+        });
+      },
+    });
 
   return $page;
 }

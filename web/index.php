@@ -32,12 +32,21 @@
     'twig.path' => __DIR__.'/views',
   ));
 
+  $app->register(new Silex\Provider\SessionServiceProvider());
+
+  $app->before(function ($request) {
+    $request->getSession()->start();
+  });
+
   $app->get('/', function () use ($app) {
     return $app['twig']->render('index.html');
   });
 
   require_once __DIR__.'/backend/search.php';
   require_once __DIR__.'/backend/email.php';
+  require_once __DIR__.'/backend/city.php';
+  require_once __DIR__.'/backend/selectcity.php';
+  require_once __DIR__.'/backend/destroy.php';
 
   // set debug mode
   $app['debug'] = true;
