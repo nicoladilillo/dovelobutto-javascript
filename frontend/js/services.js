@@ -6,8 +6,8 @@ import email from '../views/email.mustache';
 import notFound from '../views/not-found.mustache';
 import city from '../views/city.mustache';
 
-function city() {
-  return $.ajax('/city').then(
+function findCity() {
+  return $.getJSON('/city').then(
     function(response) {
       return response.data;
   });
@@ -46,6 +46,7 @@ function searchOne(name) {
 }
 
 function getView(name) {
+  console.log(name);
   var views = {
     index: index,
     found: found,
@@ -58,4 +59,4 @@ function getView(name) {
   return views[name];
 }
 
-export { getView, search, searchOne, saveProduct, selectCity, city };
+export { getView, search, searchOne, saveProduct, selectCity, findCity };

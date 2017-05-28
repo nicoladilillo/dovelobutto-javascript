@@ -1,8 +1,8 @@
 import { go } from './routing';
-import { city } from './services';
+import { findCity } from './services';
 import '../main.scss';
 
-city().then( function (data) {
+findCity().then(function(data) {
   if(data === null)
     go('city');
   else
