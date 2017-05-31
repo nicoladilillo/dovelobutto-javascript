@@ -6,17 +6,28 @@ import email from '../views/email.mustache';
 import notFound from '../views/not-found.mustache';
 import city from '../views/city.mustache';
 
+function detsroyCity() {
+  return $.ajax('/destroy');
+}
+
 function findCity() {
   return $.getJSON('/city').then(
     function(response) {
       return response.data;
   });
 }
+
 function selectCity(name) {
-  return $.getJSON('/selectcity', {
+  return $.getJSON('/searchcity', {
     name: name
   }).then(function(response) {
     return response.data;
+  });
+}
+
+function selectOne(name) {
+  return selectCity(name).then(function (data) {
+    return data[0];
   });
 }
 
@@ -46,7 +57,6 @@ function searchOne(name) {
 }
 
 function getView(name) {
-  console.log(name);
   var views = {
     index: index,
     found: found,
@@ -59,4 +69,4 @@ function getView(name) {
   return views[name];
 }
 
-export { getView, search, searchOne, saveProduct, selectCity, findCity };
+export { getView, search, searchOne, saveProduct, selectCity, findCity, selectOne, detsroyCity};

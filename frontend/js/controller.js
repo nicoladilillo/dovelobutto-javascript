@@ -2,7 +2,26 @@ import $ from 'jquery';
 import 'jquery-ui/ui/widgets/autocomplete';
 import Mustache from 'mustache';
 import { go } from './routing';
-import { searchOne, search, saveProduct, selectCity } from './services';
+import { searchOne, search, saveProduct, selectCity, selectOne, detsroyCity } from './services';
+
+function handleCity(city) {
+  if (city.id) {
+    $.ajax('/selectcity', {
+      contentType: 'application/json',
+      data: JSON.stringify({
+        city: city.id,
+        name: city.name,
+      }),
+      method: 'post',
+    });
+    location.reload();
+  } else {
+    go('city', {
+      error: 'selezionare una città esistente',
+    })
+  }
+
+}
 
 function handleProduct(product) {
   if (product.bin) {
@@ -24,13 +43,25 @@ function init(template, data) {
   var html = Mustache.render(template, data);
 
   var $page = $(html);
+
   $page.find('.js--go')
     .off('click')
     .on('click', function() {
       var route = $(this).data('route');
       var data = $(this).data('data') || '{}';
       go(route, JSON.parse(data));
-  });
+    });
+
+  $page.find('.js--destroy-city')
+    .off('submit')
+    .on('submit', function(e) {
+      e.preventDefault();
+
+      detsroyCity().then(function() {
+        console.log('ciao');
+      });
+      go('city');
+    });
 
   $page.find('.js--search-form')
     .off('submit')
@@ -42,6 +73,17 @@ function init(template, data) {
         handleProduct(product);
       });
     });
+
+    $page.find('.js--city-form')
+      .off('submit')
+      .on('submit', function(e) {
+        e.preventDefault();
+
+        var citySelect = this.name.value;
+        selectOne(citySelect).then(function(city) {
+          handleCity(city);
+        });
+      });
 
     $page.find('.js--email-form')
       .off('submit')
@@ -82,6 +124,9 @@ function init(template, data) {
           }
           response(data);
         });
+      },
+      select: function(e, ui) {
+        handleCity(ui.item);
       },
     });
 
