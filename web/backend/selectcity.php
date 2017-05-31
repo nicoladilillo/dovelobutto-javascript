@@ -15,7 +15,7 @@
       array_push($output,
         array(
           'name' => $city,
-          'id' => null
+          'id' => null,
         )
       );
     };
@@ -34,7 +34,7 @@
 
   $app->post('/selectcity', function (Request $request) use ($app) {
     $city = $request->get('name');
-    $id = $request->get('id');  
+    $id = $request->get('id');
     $app['session']->set('city',
       array(
         'name' => $city,

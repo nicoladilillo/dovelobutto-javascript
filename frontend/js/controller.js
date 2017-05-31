@@ -13,8 +13,9 @@ function handleCity(city) {
         name: city.name,
       }),
       method: 'post',
+      async:false,
     });
-    location.reload();
+    go('index');
   } else {
     go('city', {
       error: 'selezionare una città esistente',
@@ -53,14 +54,14 @@ function init(template, data) {
     });
 
   $page.find('.js--destroy-city')
-    .off('submit')
-    .on('submit', function(e) {
-      e.preventDefault();
+    .off('click')
+    .on('click', function() {
 
-      detsroyCity().then(function() {
-        console.log('ciao');
-      });
-      go('city');
+       detsroyCity().then(function () {
+         go('city', {
+           error: "seleziona un'altra città",
+         })
+       })
     });
 
   $page.find('.js--search-form')

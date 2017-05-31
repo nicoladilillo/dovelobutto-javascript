@@ -3,6 +3,7 @@
 
 # Webpack
 web/assets/js/bundle.js
+web/assets/js/bundle.js.map
 
 # Silex
 /vendor/

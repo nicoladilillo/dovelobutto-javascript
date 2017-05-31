@@ -1,6 +1,9 @@
 var path = require('path');
 
+
 module.exports = {
+  devtool: "source-map",
+  
   module: {
     rules: [
       {
@@ -23,5 +26,4 @@ module.exports = {
   output: {
     filename: './web/assets/js/bundle.js',
   },
-  devtool: "cheap-eval-source-map",
 }
