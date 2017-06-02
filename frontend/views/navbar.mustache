@@ -1,14 +1,18 @@
 <nav class="navbar">
-  <span>{{ city }}</span><br />
-  <button type="submit" class="js--destroy-city" > cambia città</button>
+  <header class="header">
     <a class="header-wrapper" href="/">
-        <header class="header">
-            <img class="header__image" src="/assets/images/logo.svg" alt="Dove lo butto">
-            <h1 class="header__text">Dove lo butto</h1>
-        </header>
+      <img class="header__image" src="/assets/images/logo.svg" alt="Dove lo butto">
+      <h1 class="header__text">
+        Dove lo butto
+        <blockquote class="header__blockquote">{{ city }}</blockquote>
+      </h1>
     </a>
-    <form class="js--search-form navbar__form">
-        <input class="navbar__input js--autocomplete-product" type="text" name="name" placeholder="Ricicla ora">
-        <input class="navbar__submit" type="image" src="/assets/images/logo.svg" alt="Ricicla">
-    </form>
+    <button type="submit" class="js--destroy-city header__button" > cambia città</button>
+  </header>
+
+  <form class="js--search-form navbar__form">
+    <input class="navbar__input js--autocomplete-product" type="text" name="name" placeholder="Ricicla ora">
+    <input class="navbar__submit" type="image" src="/assets/images/logo.svg" alt="Ricicla">
+  </form>
+
 </nav>

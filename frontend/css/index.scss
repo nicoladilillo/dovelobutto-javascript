@@ -1,4 +1,33 @@
-.page--index {
-    background-color: #71B84F;
-    color: #F1F8E9;
+@import "index/index.scss";
+@import "navbar/index.scss";
+@import "city/index.scss";
+@import "found/index.scss";
+@import "notFound/index.scss";
+@import "email/index.scss";
+
+html {
+  font-family: 'Work Sans','Helvetica Neue','Segoe UI',sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+div.page {
+  height: 0;
+  min-height: 100vh;
+  position: relative;
+  text-align: center;
+}
+
+div.page__content {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  justify-content: center;
+  height: 100%;
 }

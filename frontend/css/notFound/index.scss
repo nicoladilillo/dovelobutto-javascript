@@ -1,0 +1,17 @@
+
+div.page--not-found {
+  background-color: #E8E8DF;
+  color: #453F38;
+  padding-right: 300px;
+
+  @import 'input.scss';
+  @import 'button.scss';
+
+  img.presentation-image {
+    display: block;
+    position: absolute;
+    width: 600px;
+    right: 0;
+    bottom: 0;
+  }
+}

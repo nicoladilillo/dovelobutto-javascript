@@ -1,0 +1,27 @@
+.page--index {
+  background-color: #71B84F;
+  color: #F1F8E9;
+  padding-left: 240px;
+  
+  header.header {
+    text-align: center;
+  }
+
+  img.header__image {
+    margin-right: 10px;
+    width: 150px;
+  }
+
+  h1.header__text {
+    font-size: 30px;
+    font-weight: 400;
+  }
+
+  img.presentation-image {
+    display: block;
+    position: absolute;
+    width: 700px;
+    bottom: 0;
+    left: 0;
+  }
+}

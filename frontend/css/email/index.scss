@@ -1,0 +1,11 @@
+div.page--email {
+  background-color: #4E342E;
+  color: #EFEBE9;
+
+  .page--email__icon {
+    height: 100px;
+  }
+
+  @import 'button.scss';
+  @import 'garbage.scss';
+}

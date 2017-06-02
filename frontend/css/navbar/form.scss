@@ -1,0 +1,26 @@
+
+form.navbar__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+input.navbar__input {
+  width: 100%;
+  border: 1px solid #d7d7d7;
+  border-radius: 3px 0 0 3px;
+  font-family: inherit;
+  text-transform: uppercase;
+  background-color: #e7e7e7;
+  color: #777;
+}
+
+input.navbar__submit{
+  background-color: #4CAF50;
+  color: #fff;
+  border: 1px solid #4CAF50;
+  border-radius: 0 3px 3px 0;
+  outline: 0;
+}

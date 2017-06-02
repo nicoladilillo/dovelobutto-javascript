@@ -1,0 +1,14 @@
+
+nav.navbar {
+    position: fixed;
+    display: flex;
+    z-index: 1;
+    justify-content: space-between;
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #FFF;
+    
+    @import "header.scss";
+    @import "form.scss";
+}

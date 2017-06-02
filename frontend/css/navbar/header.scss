@@ -1,0 +1,40 @@
+header.header {
+  flex-direction: row;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: flex-start;
+
+  a.header-wrapper {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  h1.header__text {
+    display: inline;
+    font-size: 1.6em;
+    vertical-align: middle;
+  }
+
+  blockquote.header__blockquote {
+    margin: 0;
+    margin-left: 176px;
+    margin-top: -12px;
+    position: relative;
+    font-size: 0.5em;
+    color: rgb(129, 134, 127);
+  }
+
+  button.header__button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: 1px solid #4CAF50;
+    border-radius: 0 3px 3px 0;
+    outline: 0;
+  }
+
+  img.header__image {
+    width: auto;
+    vertical-align: middle;
+  }
+}

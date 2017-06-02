@@ -1,0 +1,26 @@
+@import "background.scss";
+
+.page--found {
+  color: #fff;
+  
+  h4.page--found__text {
+    font-size: 18px;
+    font-weight: initial;
+    margin-top: 50px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 0;
+  }
+
+  h2.page--found__material {
+    font-size: 26px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    line-height: 0;
+  }
+
+  .recycle-bin {
+    width: 250px;
+    max-width: 100%;
+  }
+}
