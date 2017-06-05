@@ -5,6 +5,18 @@ form.navbar__form {
   display: flex;
   flex-direction: row;
   align-self: center;
+  @media screen and (max-width: 700px) {
+    width: 60%;
+    margin: 10px auto;
+  }
+  @media screen and (max-width: 560px) {
+    width: 70%;
+  }
+  @media screen and (max-width: 500px) {
+    width: 80%;
+    height: 35px;
+    margin-top: 15px;
+  }
 }
 
 input.navbar__input {

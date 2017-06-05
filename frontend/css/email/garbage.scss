@@ -2,4 +2,9 @@
   position: absolute;
   height: 20%;
   bottom: 0;
+  @media screen and (max-width: 800px) {
+    position: relative;
+    width: 50vw;
+    margin: 0 auto;
+  }
 }

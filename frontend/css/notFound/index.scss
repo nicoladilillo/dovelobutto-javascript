@@ -1,17 +1,49 @@
-
+div.page.page--not-found {
+  @media screen and (max-width: 850px) {
+    padding-right: 0;
+    height: inherit;
+    min-height: inherit;
+  }
+}
 div.page--not-found {
   background-color: #E8E8DF;
   color: #453F38;
   padding-right: 300px;
+  @media screen and (max-width: 850px) {
+    padding-right: 0;
+  }
 
   @import 'input.scss';
   @import 'button.scss';
 
   img.presentation-image {
+    z-index: initial;
     display: block;
     position: absolute;
-    width: 600px;
-    right: 0;
+    width: 700px;
     bottom: 0;
+    right: 0;
+    @media screen and (max-width: 1400px) {
+      width: 650px;
+    }
+
+    @media screen and (max-width: 1300px) {
+      width: 600px;
+    }
+
+    @media screen and (max-width: 1100px) {
+      width: 550px;
+    }
+
+    @media screen and (max-width: 850px) {
+      position: relative;
+      margin: 0 auto;
+      width: 450px;
+    }
+
+    @media screen and (max-width: 550px) {
+      width: 70vw;
+    }
+
   }
 }
