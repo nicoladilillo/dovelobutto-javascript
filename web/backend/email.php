@@ -32,10 +32,15 @@
     else
       $email = (int)$row[0]['id'];
 
+    //dump id
+    $session = $app['session']->get('city');
+    $dump = $session['dump'];
+
     $app['db']->insert('agreements', array(
         'id_product' => $name,
         'id_email' => $email,
         'id_status' => 2,
+        'id_dump' => $dump,
       )
     );
 

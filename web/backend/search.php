@@ -3,11 +3,14 @@
 
   $app->get('/search', function (Request $request) use ($app) {
     $name = strtolower($request->get('name'));
+    $session = $app['session']->get('city');
+    $dump = $session['dump'];
+
     $sql =
       "SELECT b.Name as bin, b.ID as id, p.Name AS name
        FROM (agreements a INNER JOIN products p ON (a.id_product=p.ID))
             INNER JOIN bins b ON (a.id_bin=b.ID)
-      WHERE p.Name LIKE '$name%' and a.id_status=1";
+      WHERE p.Name LIKE '$name%' and a.id_status=1 and a.id_dump=$dump";
     $row = $app['db']->fetchAll($sql);
 
     $output = [];

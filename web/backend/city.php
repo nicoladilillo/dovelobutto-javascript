@@ -1,5 +1,5 @@
 <?php
-  
+
   $app->get('/city', function () use ($app) {
     $city = $app['session']->get('city');
 

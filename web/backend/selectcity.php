@@ -5,13 +5,13 @@
   $app->get('/searchcity', function (Request $request) use ($app) {
     $city = strtolower($request->get('name'));
     $sql =
-      "SELECT name AS name, ID AS id
-       FROM cities
-      WHERE name LIKE '$city%'";
+      "SELECT c.name AS city, c.ID AS id, d.ID AS dump
+      FROM cities c INNER JOIN  dumps d ON (c.id_dump=d.ID)
+      WHERE c.name LIKE '$city%'";
     $row = $app['db']->fetchAll($sql);
 
     $output = [];
-    if ( $row == [] or $row[0]['name'] != $city ) {
+    if ( $row == [] or $row[0]['city'] != $city ) {
       array_push($output,
         array(
           'name' => $city,
@@ -24,7 +24,8 @@
       array_push($output,
         array(
           'id' => $row['id'],
-          'name' => $row['name'],
+          'name' => $row['city'],
+          'dump' => $row['dump'],
         )
       );
     }
@@ -34,11 +35,13 @@
 
   $app->post('/selectcity', function (Request $request) use ($app) {
     $city = $request->get('name');
-    $id = $request->get('id');
+    $id = $request->get('city');
+    $dump = $request->get('dump');
     $app['session']->set('city',
       array(
         'name' => $city,
         'id' => $id,
+        'dump' => $dump,
       )
     );
 

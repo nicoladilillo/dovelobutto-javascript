@@ -5,12 +5,14 @@ import { go } from './routing';
 import { searchOne, search, saveProduct, selectCity, selectOne, detsroyCity } from './services';
 
 function handleCity(city) {
+  console.log(city);
   if (city.id) {
     $.ajax('/selectcity', {
       contentType: 'application/json',
       data: JSON.stringify({
         city: city.id,
         name: city.name,
+        dump: city.dump,
       }),
       method: 'post',
       async:false,
