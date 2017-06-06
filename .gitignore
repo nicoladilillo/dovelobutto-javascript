@@ -2,12 +2,10 @@
 /node_modules/
 
 # Webpack
-web/assets/js/bundle.js
 web/assets/js/bundle.js.map
 
 # Silex
 /vendor/
-composer.lock
 /build/
 
 scheme.sql
