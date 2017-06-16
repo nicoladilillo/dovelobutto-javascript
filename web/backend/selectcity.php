@@ -5,8 +5,8 @@
   $app->get('/searchcity', function (Request $request) use ($app) {
     $city = strtolower($request->get('name'));
     $sql =
-      "SELECT c.name AS city, c.ID AS id, d.ID AS dump
-      FROM cities c INNER JOIN  dumps d ON (c.id_dump=d.ID)
+      "SELECT c.name AS city, c.id AS id, d.id AS dump
+      FROM cities c INNER JOIN  dumps d ON (c.dump_id=d.id)
       WHERE c.name LIKE '$city%'";
     $row = $app['db']->fetchAll($sql);
 
